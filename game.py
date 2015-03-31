@@ -29,7 +29,7 @@ def game(table_name):
 @app.route("/games/<table_name>/sort_word")
 def sort_word(table_name):
     if not redis.sismember("games", table_name):
-        raise LoLException('noooo!')
+        raise LoLException('noooo! try again!!')
     redis.set(table_name+":current_word", "batata")
     redis.expire(table_name+":current_word", 10)
     return "i've sorted! yahoo"
